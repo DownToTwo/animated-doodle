@@ -31,12 +31,13 @@ jobs:
       - name: Install dependencies
         working-directory: ./moz-todo-react
         run: npm install
-      - name: Install gh-pages
-        run: npm install gh-pages
       - name: Install dependencies
         working-directory: ./moz-todo-react
         run: npm run build
 
       - name: Deploy
-        working-directory: ./moz-todo-react
-        run: npm run deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/main'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./moz-todo-react/build
