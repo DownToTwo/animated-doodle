@@ -27,10 +27,13 @@ jobs:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node-
-
-      - run: npm i
-      - run: npm run build
+            ${{ runner.os }}-node- 
+      - name: Install dependencies
+        working-directory: ./moz-todo-react
+        run: npm install
+      - name: Install dependencies
+        working-directory: ./moz-todo-react
+        run: npm run build
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
