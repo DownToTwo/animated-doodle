@@ -3,7 +3,6 @@ import React, { useState, useRef, useEffect } from "react";
 import Form from "./components/Form";
 import FilterButton from "./components/FilterButton";
 import Todo from "./components/Todo";
-import { nanoid } from "nanoid";
 
 function App(props) {
   function addTask(name) {
@@ -39,9 +38,7 @@ function App(props) {
     setTasks(editedTaskList);
   }
   const [filter, setFilter] = useState("All");
-  const [name, setName] = useState("");
   const [tasks, setTasks] = useState(props.tasks);
-  const newTask = { id: `todo-${nanoid()}`, name, completed: false };
   const FILTER_MAP = {
     All: () => true,
     Active: (task) => !task.completed,
@@ -98,7 +95,7 @@ function App(props) {
         {headingText}
       </h2>
 
-      <ul
+      <ul // eslint-disable-line
         role="list"
         className="todo-list stack-large stack-exception"
         aria-labelledby="list-heading"
