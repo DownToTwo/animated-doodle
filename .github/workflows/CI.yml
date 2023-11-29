@@ -31,6 +31,8 @@ jobs:
       - name: Install dependencies
         working-directory: ./moz-todo-react
         run: npm install
+      - name: Install gh-pages
+        run: npm install gh-pages
       - name: Install dependencies
         working-directory: ./moz-todo-react
         run: npm run build
