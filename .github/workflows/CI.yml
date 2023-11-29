@@ -35,7 +35,7 @@ jobs:
         working-directory: ./moz-todo-react
         run: |
           npm run build 
-          mkdir ./my-app/my-app && cp -r ./moz-todo-react/build ./my-app/my-app
+          mkdir -p ./my-app/my-app && cp -r ./moz-todo-react/build ./my-app/my-app
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
