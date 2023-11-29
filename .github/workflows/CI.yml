@@ -36,7 +36,7 @@ jobs:
       run: |
         git config --global user.name $user_name
         git config --global user.email $user_email
-        git remote set-url origin https://${github_token}@github.com/${repository}
+        git remote set-url origin https://$user_name:${github_token}@github.com/DownToTwo/animated-doodle.git
         npm install -g gh-pages --save-dev
         npm run deploy
       env:
